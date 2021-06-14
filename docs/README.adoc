@@ -1,0 +1,17 @@
+// auto-generated. modify docs/templates/index.template.adoc and recompile instead.
+= Jasonelle Architecture Decisions
+Jasonelle Team <https://jasonelle.com>
+:encoding: utf-8
+:toc: macro
+:toclevels: 3
+:ext-relative:
+:source-highlighter: highlight.js
+:highlightjs-languages: json, javascript, bash, txt
+:source: https://github.com/jasonelle/architecture
+:producer: Jasonelle.com
+:copyright: CC-BY-NC-SA 4.0
+
+toc::[]
+
+
+include::adrs/0001-record-architecture-decisions.adoc[]
