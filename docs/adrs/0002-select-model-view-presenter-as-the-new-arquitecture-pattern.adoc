@@ -1,0 +1,25 @@
+## ADR 0002: Select Model View Presenter as the New Arquitecture Pattern
+
+Date: 2021-06-15T00:52:08.328Z
+
+### Status
+
+Accepted
+
+### Context
+
+In the current state of the art there are lot of different ways of code organization in mobile applications. One of the most common is _Model View Controller_ which is the currently used in both _Android_ and _iOS_ versions of _Jasonette_. Other patterns of architectures are _Model View Presenter_, _Model View Intent_, _Model-View-ViewModel_ and _VIPER_.
+
+More information about the _MVC_ pattern can be found on https://www.raywenderlich.com/books/advanced-android-app-architecture/v1.0/chapters/2-model-view-controller-theory[Ray Wenderlich] and https://matteomanferdini.com/ios-architecture-lotus-mvc-pattern/[Lotus MVC].
+
+The current state of the code have a https://www.objc.io/issues/1-view-controllers/lighter-view-controllers/[massive view controller] problem both in https://github.com/jasonelle/jasonette-ios/blob/9e2ce44ff8006e95054ee122266624e0b395b08b/xcode/Jasonette/Core/Jason/Jason.m[_iOS_ (4996 LOC)] and https://github.com/jasonelle/jasonette-android/blob/2a98458e6c8daa5e8a91c29ed54163909c998b84/app/src/main/java/com/jasonette/seed/Core/JasonViewActivity.java[_Android_ (3066 LOC)] which is brobdingnagian number of lines.
+
+Improving the separation of concerns, code modularization and a standarized way of organizing the code will improve dramatically the overal developer experience and ease maintainability.
+
+### Decision
+
+It was decided to use the _Model View Presenter_ pattern for use both in _iOS_ and _Android_. Since is a pattern not far away from traditional _MVC_ but have enough flexibility for adapting it to _Jasonette_ needs.
+
+### Consequences
+
+Though a user of the app won’t be able to see any difference after each of these changes, a developer will see how they solve some of the problems of the original pattern. The architecture of _Model View Presenter_. Pulls presentation logic out of the _Controllers_ and results in a significant improvement over the _MVC_ pattern in terms of separation of concerns and testability of code.

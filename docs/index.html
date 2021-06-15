@@ -463,6 +463,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_consequences">Consequences</a></li>
 </ul>
 </li>
+<li><a href="#_adr_0002_select_model_view_presenter_as_the_new_arquitecture_pattern">ADR 0002: Select Model View Presenter as the New Arquitecture Pattern</a>
+<ul class="sectlevel2">
+<li><a href="#_status_2">Status</a></li>
+<li><a href="#_context_2">Context</a></li>
+<li><a href="#_decision_2">Decision</a></li>
+<li><a href="#_consequences_2">Consequences</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -499,10 +507,51 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_adr_0002_select_model_view_presenter_as_the_new_arquitecture_pattern">ADR 0002: Select Model View Presenter as the New Arquitecture Pattern</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Date: 2021-06-15T00:52:08.328Z</p>
+</div>
+<div class="sect2">
+<h3 id="_status_2">Status</h3>
+<div class="paragraph">
+<p>Accepted</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_context_2">Context</h3>
+<div class="paragraph">
+<p>In the current state of the art there are lot of different ways of code organization in mobile applications. One of the most common is <em>Model View Controller</em> which is the currently used in both <em>Android</em> and <em>iOS</em> versions of <em>Jasonette</em>. Other patterns of architectures are <em>Model View Presenter</em>, <em>Model View Intent</em>, <em>Model-View-ViewModel</em> and <em>VIPER</em>.</p>
+</div>
+<div class="paragraph">
+<p>More information about the <em>MVC</em> pattern can be found on <a href="https://www.raywenderlich.com/books/advanced-android-app-architecture/v1.0/chapters/2-model-view-controller-theory">Ray Wenderlich</a> and <a href="https://matteomanferdini.com/ios-architecture-lotus-mvc-pattern/">Lotus MVC</a>.</p>
+</div>
+<div class="paragraph">
+<p>The current state of the code have a <a href="https://www.objc.io/issues/1-view-controllers/lighter-view-controllers/">massive view controller</a> problem both in <a href="https://github.com/jasonelle/jasonette-ios/blob/9e2ce44ff8006e95054ee122266624e0b395b08b/xcode/Jasonette/Core/Jason/Jason.m"><em>iOS</em> (4996 LOC)</a> and <a href="https://github.com/jasonelle/jasonette-android/blob/2a98458e6c8daa5e8a91c29ed54163909c998b84/app/src/main/java/com/jasonette/seed/Core/JasonViewActivity.java"><em>Android</em> (3066 LOC)</a> which is brobdingnagian number of lines.</p>
+</div>
+<div class="paragraph">
+<p>Improving the separation of concerns, code modularization and a standarized way of organizing the code will improve dramatically the overal developer experience and ease maintainability.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_decision_2">Decision</h3>
+<div class="paragraph">
+<p>It was decided to use the <em>Model View Presenter</em> pattern for use both in <em>iOS</em> and <em>Android</em>. Since is a pattern not far away from traditional <em>MVC</em> but have enough flexibility for adapting it to <em>Jasonette</em> needs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_consequences_2">Consequences</h3>
+<div class="paragraph">
+<p>Though a user of the app won’t be able to see any difference after each of these changes, a developer will see how they solve some of the problems of the original pattern. The architecture of <em>Model View Presenter</em>. Pulls presentation logic out of the <em>Controllers</em> and results in a significant improvement over the <em>MVC</em> pattern in terms of separation of concerns and testability of code.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-06-13 20:32:09 -0400
+Last updated 2021-06-14 21:27:21 -0400
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
